@@ -1,6 +1,7 @@
 var express = require('express');
 var pgp = require('pg-promise')();
-var db = pgp('postgres://nkwnjxuiidwrns:b72b4de42f726173c9acee8a85dd10ed1c8dc1a2ab7402a6feebbbccb8b14f85@ec2-54-163-245-44.compute-1.amazonaws.com:5432/d34ii1v5fr4h1e?ssl=true')
+//var db = pgp(process.env.DATABASE_URL);
+var db = pgp('postgres://ivkkicwbrksmau:5c299e95162794eb2d24ffab04b1a554075466c03d248e01c2b5fe3eed174dc5@ec2-54-243-147-162.compute-1.amazonaws.com:5432/daf023q10sen3g?ssl=true')
 var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -131,4 +132,4 @@ var port = process.env.PORT || 8080;
 app.listen(port, function() {
 console.log('App is running on http://localhost:' + port);
 }); 
-app.listen(8080);
+//app.listen(8080);
