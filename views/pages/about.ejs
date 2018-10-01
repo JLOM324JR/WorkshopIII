@@ -1,0 +1,20 @@
+<% include ../partials/header %>
+
+    <h1 ><%= nickname%></h1>
+    <ul>
+    <ul>
+    <% hobbies.forEach(function(hobby) { %>
+        <li><%= hobby %> </li>
+    <% }); %>
+</ul>
+<h3 ><%= bdate%></h3>
+       <p >Radtanaporn  Choeikan</p>
+      
+       <p>SomeWhere Between Sad And Tries</p>
+      
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="index.ejs" role="button">View</a>
+    </p>
+</div>
+
+  <% include ../partials/footer %>
