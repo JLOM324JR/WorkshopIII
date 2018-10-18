@@ -117,7 +117,7 @@ app.get('/users/:id', function (req, res) {
      var title = req.body.title;
      var price = req.body.price;
      //var sql = 'update product set title = "'+title+'", price ="'+price+'" where id = '+id;
-     var sql = `update products set title = '${title}', price = ${price} where id = ${id}`;
+     var sql = `update product set title = '${title}', price = ${price} where id = ${id}`;
      //Alt96
      //db.none
      //res.send(sql); result update product set title = Desktop Computer, price = 499.99 where id = 6
