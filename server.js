@@ -82,7 +82,7 @@ app.post('/product_delete/:id', function (req, res) {
     if (id) {
         sql += ' where id =' + id;
     }
-    db.any(sql)
+    db.query(sql)
         .then(function (data) {
             console.log('DATA:' + data);
             res.redirect('/products');
