@@ -112,10 +112,12 @@ app.get('/users/:id', function (req, res) {
 
 
 });
- app.post('/product/update', function (req, res) {
+ app.post('/users/update', function (req, res) {
      var id = req.body.id;
-     var title = req.body.title;
-     var price = req.body.price;
+     var email = req.body.email;
+     var password = req.body.password;
+     var detail = req.body.detail;
+     var detail = req.body.detail;
      //var sql = 'update product set title = "'+title+'", price ="'+price+'" where id = '+id;
      var sql = `update products set title = '${title}', price = '${price}' where id = '${id}'`;
      //Alt96
@@ -133,7 +135,27 @@ app.get('/users/:id', function (req, res) {
      //res.redirect('/product');
  
  });
+ app.post('/product/update', function (req, res) {
+    var id = req.body.id;
+    var title = req.body.title;
+    var price = req.body.price;
+    //var sql = 'update product set title = "'+title+'", price ="'+price+'" where id = '+id;
+    var sql = `update products set title = '${title}', price = '${price}' where id = '${id}'`;
+    //Alt96
+    //db.none
+    //res.send(sql); result update product set title = Desktop Computer, price = 499.99 where id = 6
+    //res.send('id:'+id + ',title=' +title);
+    db.query(sql)
+       .then(function(data){
+           response.redirect('/product')
+       })
+       .catch(function(data){
+           console.log('ERROR:'+console.error);
+       })
+   // console.log('UPDATE:'+sql);
+    //res.redirect('/product');
 
+});
 //console.log('App is running at http://localhost:8080');
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
