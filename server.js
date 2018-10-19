@@ -147,7 +147,7 @@ app.get('/users/:id', function (req, res) {
     //res.send('id:'+id + ',title=' +title);
     db.query(sql)
        .then(function(data){
-           response.redirect('/product')
+           res.redirect('/products')
        })
        .catch(function(data){
            console.log('ERROR:'+console.error);
