@@ -76,11 +76,11 @@ app.post('/product/update', function (req, res) {
        })
 });
 //Delete Product
-app.post('/product_delete/:id', function (req, res) {
-    var id = req.params.id;
+app.post('/product_delete/:pid', function (req, res) {
+    var pid = req.params.pid;
     var sql = 'DELETE FROM products';
-    if (id) {
-        sql += ' where id =' + id;
+    if (pid) {
+        sql += ' where id =' + pid;
     }
     db.query(sql)
         .then(function (data) {
