@@ -85,7 +85,7 @@ app.post('/product_delete/:id', function (req, res) {
     db.query(sql)
         .then(function (data) {
             console.log('DATA:' + data);
-            res.redirect('/products');
+            res.redirect('/products',{ id: data });
 
         })
         .catch(function (error) {
