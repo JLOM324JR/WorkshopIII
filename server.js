@@ -126,6 +126,22 @@ app.get('/users/:id', function (req, res) {
      //res.redirect('/product');
  
  });
+ app.post('/product/add_product', function (req, res) {
+    var id = req.body.id;
+    var title = req.body.title;
+    var price = req.body.price;
+    var sql = `insert into products (id,title,price) values title = '${title}', price = '${price}' where id = '${id}'`;
+    db.query(sql)
+       .then(function(data){
+           res.redirect('/products')
+       })
+       .catch(function(data){
+           console.log('ERROR:'+console.error);
+       })
+   // console.log('UPDATE:'+sql);
+    //res.redirect('/product');
+
+});
  app.post('/product/update', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;
@@ -147,7 +163,7 @@ app.get('/users/:id', function (req, res) {
     //res.redirect('/product');
 
 });
-app.post('/product_delete', function (req, res) {
+app.post('/product_delete/:id', function (req, res) {
     var id = req.params.id;
     var sql = 'DELETE FROM products';
     if (id) {
