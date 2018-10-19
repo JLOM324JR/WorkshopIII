@@ -77,10 +77,10 @@ app.post('/product/update', function (req, res) {
 });
 //Delete Product
 app.post('/product_delete/:pid', function (req, res) {
-    var pid = req.params.pid;
+    var id = req.params.id;
     var sql = 'DELETE FROM products';
-    if (pid) {
-        sql += ' where id =' + pid;
+    if (id) {
+        sql += ' where id =' + id;
     }
     db.query(sql)
         .then(function (data) {

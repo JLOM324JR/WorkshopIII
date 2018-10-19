@@ -1,6 +1,6 @@
 <% include ../partials/header %>
 
-<form action = "/product_delete/:pid" method = "POST">
+<form action = "/product/update" method = "POST">
 
 <div class="form-group">
   <label for="">ID</label>
@@ -23,7 +23,7 @@
 <div class="text-center">
         <a name="" id="" class="btn btn-success" href="#" role="button">Save</a>
         <a name="" id="" class="btn btn-warning" href="/products" role="button">Cancel</a>
-        <a name="" id="" class="btn btn-danger" href="/products_delete/<%= product.pid %>" role="button">Delete</a>
+        <a name="" id="" class="btn btn-danger" href="/products_delete/<%= product.id %>" role="button">Delete</a>
     </div>
 </form>
 
