@@ -147,6 +147,22 @@ app.get('/users/:id', function (req, res) {
     //res.redirect('/product');
 
 });
+app.post('/product/delete', function (req, res) {
+    var id = req.params.id;
+    var sql = 'DELETE FROM products';
+    if (id) {
+        sql += ' where id =' + id;
+    }
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.redirect('/products');
+
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+});
 //console.log('App is running at http://localhost:8080');
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
