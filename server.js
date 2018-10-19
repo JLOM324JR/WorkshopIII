@@ -1,19 +1,10 @@
 var express = require('express');
 var pgp = require('pg-promise')();
-//var db = pgp(process.env.DATABASE_URL);
 var db = pgp('postgres://ivkkicwbrksmau:5c299e95162794eb2d24ffab04b1a554075466c03d248e01c2b5fe3eed174dc5@ec2-54-243-147-162.compute-1.amazonaws.com:5432/daf023q10sen3g?ssl=true')
 var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-/*app.get('/',function(request, response){
-    response.send('Hello, ExpressJS');
-    });
-
-app.get('/test',function(request, response){
-    response.send('<H1>Test</H1>');
-    });*/
-//app.use(express.static('static'));
 app.set('view engine', 'ejs');
 app.get('/', function (req, res) {
     res.render('pages/index');
