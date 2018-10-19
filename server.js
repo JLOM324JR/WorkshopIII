@@ -32,7 +32,7 @@ res.redirect('/about');
 //DISPLAY ALL PRODUCTS2
 
 app.get('/products', function (req, res) {
-    db.any('select* from products')
+    db.any('select* from products DESC')
         .then(function (data) {
             console.log('DATA' + data);
             //res.json(data);
