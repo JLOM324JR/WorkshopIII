@@ -147,7 +147,7 @@ app.get('/users/:id', function (req, res) {
     //res.redirect('/product');
 
 });
-app.post('/product/delete', function (req, res) {
+app.post('/product_delete', function (req, res) {
     var id = req.params.id;
     var sql = 'DELETE FROM products';
     if (id) {
