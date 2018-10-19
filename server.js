@@ -76,7 +76,7 @@ app.post('/product/update', function (req, res) {
        })
 });
 //Delete Product
-app.post('/product_delete/:pid', function (req, res) {
+app.get('/product_delete/:pid', function (req, res) {
     var pid = req.params.pid;
     var sql = 'DELETE FROM products';
     if (pid) {
