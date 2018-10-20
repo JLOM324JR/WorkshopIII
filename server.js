@@ -149,7 +149,9 @@ app.post('/user/add_user', function (req, res) {
             console.log('ERROR:' + error);
         })
 })
-
+app.get('/add_user', function (req, res) {
+    res.render('pages/add_user');
+})
 
  //Edit User
 app.post('/user/update', function (req, res) {
