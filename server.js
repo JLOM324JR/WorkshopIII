@@ -136,7 +136,6 @@ app.get('/users/:id', function (req, res) {
         })
 });
 //Add New User
-
 app.post('/user/add_user', function (req, res) {
     var id = req.body.id;
     var email = req.body.email;
@@ -171,7 +170,20 @@ app.get('/add_user', function (req, res) {
             console.log('ERROR:'+console.error);
         })
  });
- 
+ //Edit User
+app.post('/user/update', function (req, res) {
+    var id = req.body.id;
+    var title = req.body.title;
+    var price = req.body.price;
+    var sql = `update users set email = '${email}', password = '${password}' where id = '${id}'`;
+    db.query(sql)
+       .then(function(data){
+           res.redirect('/users')
+       })
+       .catch(function(data){
+           console.log('ERROR:'+console.error);
+       })
+});
 
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
