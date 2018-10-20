@@ -47,11 +47,15 @@ app.get('/products/:pid', function (req, res) {
 })
 
 ///add_product
+app.get('products/add_product', function (req, res) {
+    res.render('pages/add_product');
+})
 app.post('products/add_product', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;
     var price = req.body.price;
     var sql = `INSERT INTO products (id, title, price) VALUES ('${id}', '${title}', '${price}')`;
+    console.log('UPDATE:' + sql);
     db.any(sql)
         .then(function (data) {
             console.log('DATA:' + data);
@@ -62,9 +66,6 @@ app.post('products/add_product', function (req, res) {
             console.log('ERROR:' + error);
         })
 
-});
-app.get('add_product', function(req,res){
-    res.render('pages/add_product')
 })
 //Edit Product
 app.post('/product/update', function (req, res) {
