@@ -50,7 +50,7 @@ app.get('/products/:pid', function (req, res) {
 app.get('products/add_product', function (req, res) {
     res.render('pages/add_product');
 })
-app.post('products/add_product', function (req, res) {
+app.post('/add_product', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;
     var price = req.body.price;
