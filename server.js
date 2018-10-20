@@ -51,7 +51,7 @@ app.post('/products/add_product', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;
     var price = req.body.price;
-    var sql = `insert into products (id,title,price) values title = '${title}', price = '${price}' where id = '${id}'`;
+    var sql = `INSERT INTO products (id,title,price) VALUES '${title}','${price}','${id}'`;
     db.query(sql)
        .then(function(data){
            res.redirect('/products')
@@ -61,7 +61,7 @@ app.post('/products/add_product', function (req, res) {
        })
 });
 
-//Update Product
+//Edit Product
 app.post('/product/update', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;
@@ -75,6 +75,7 @@ app.post('/product/update', function (req, res) {
            console.log('ERROR:'+console.error);
        })
 });
+
 //Delete Product
 app.get('/product_delete/:pid', function (req, res) {
     var pid = req.params.pid;
