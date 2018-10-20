@@ -23,7 +23,7 @@ app.get('/about', function (req, res) {
 
 //Display All Products
 app.get('/products', function (req, res) {
-    db.any('select* from products ')
+    db.any('select* from products order by id ASC')
         .then(function (data) {
             console.log('DATA' + data);
             res.render('pages/products', { products: data })
