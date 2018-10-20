@@ -138,7 +138,7 @@ app.post('/user/add_user', function (req, res) {
     var password = req.body.password;
     var sql = `INSERT INTO users (id, email, password)
     VALUES ('${id}', '${email}', '${password}')`;
-    console.log('UPDATE:' + sql);
+     console.log('UPDATE:' + sql);
     db.any(sql)
         .then(function (data) {
             console.log('DATA:' + data);
@@ -154,8 +154,8 @@ app.post('/user/add_user', function (req, res) {
  //Edit User
 app.post('/user/update', function (req, res) {
     var id = req.body.id;
-    var title = req.body.title;
-    var price = req.body.price;
+    var email = req.body.email;
+    var password = req.body.password;
     var sql = `update users set email = '${email}', password = '${password}' where id = '${id}'`;
     db.query(sql)
        .then(function(data){
