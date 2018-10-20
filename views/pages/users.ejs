@@ -1,11 +1,16 @@
 <% include ../partials/header %>
+<script language="javascript">
+function fncAlert(){
+alert('Do you want to delete product');
+}
+</script>
 <table class="table">
     <thead>
         <tr>
             <th>ID</th>
             <th>EMAIL</th>
             <th>PASSWORD</th>
-            <th><a name="" id="" class="btn btn-success" href="/add_user" role="button">Add New</a>
+            <th><a name="" id="" class="btn btn-success" href="/add_product" role="button">Add New</a>
             </th>
         </tr>
     </thead>
@@ -15,6 +20,8 @@
             <td scope="row"><%= user.id %></td>
             <td><%= user.email %></td>
             <td><%= user.password %></td>
+            <td><td><a name="" id="" class="btn btn-primary" href="/users/<%= user.id %>" role="button">Edit</a>
+            <a  class="btn btn-danger" OnClick="JavaScript:fncAlert();" href="/user_delete/<%= user.id %>" role="button">Delete</a></td></td>
         </tr>
     <%}); %>
     </tbody>
