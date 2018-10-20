@@ -4,8 +4,8 @@ function fncAlert(){
 alert('Do you want to delete product');
 }
 </script>
-<div class = "table">
-<input class="form-control" id="myInput" type="text" placeholder="Search..">
+
+<input class="form-control" id="myInput" type="text" placeholder="Search.." padding = "Auto">
 <table class="table">
     <thead>
         <tr>
@@ -16,7 +16,7 @@ alert('Do you want to delete product');
             </th>
         </tr>
     </thead>
-    <tbody id="myTable">
+    <tbody id="myTable" cellpadding="10">
     <% users.forEach(function(user) {%>
         <tr>
             <td scope="row"><%= user.id %></td>
@@ -28,7 +28,7 @@ alert('Do you want to delete product');
     <%}); %>
     </tbody>
 </table>
-</div>
+
 <script>
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
