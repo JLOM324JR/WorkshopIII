@@ -1,30 +1,30 @@
 <% include ../partials/header %>
-
-<form action = "/product/update" method = "POST">
-
+<form action="/add_product"  method = "post">
+<div class="jumbotron">
+<h1 class="display-4">ADD NEW PRODUCT</h1>
 <div class="form-group">
   <label for="">ID</label>
   <input type="number"
-    class="form-control" value = "<%= product.id %>" name="id" id="" aria-describedby="helpId" placeholder="">
-  <small id="helpId" class="form-text text-muted">Product ID</small>
+    class="form-control" name="id" id="" aria-describedby="helpId" placeholder="ID">
+  <small id="helpId" class="form-text text-muted"></small>
 </div>
 <div class="form-group">
-  <label for="">TITLE</label>
+  <label for="">Title</label>
   <input type="text"
-    class="form-control" value = "<%= product.title %>" name="title" id="" aria-describedby="helpId" placeholder="">
-  <small id="helpId" class="form-text text-muted">Product Title</small>
+    class="form-control" name="title" id="" aria-describedby="helpId" placeholder="Title">
+  <small id="helpId" class="form-text text-muted"></small>
 </div>
 <div class="form-group">
   <label for="">Price</label>
   <input type="number"
-    class="form-control" value = "<%= product.price %>" name="price" id="" aria-describedby="helpId" placeholder="">
-  <small id="helpId" class="form-text text-muted">Product Price</small>
+    class="form-control" name="price" id="" aria-describedby="helpId" placeholder="Price">
+  <small id="helpId" class="form-text text-muted"></small>
 </div>
-<div class="text-center">
-        <a name="" id="" class="btn btn-success" href="/products/<%= product.id %>" role="button">Save</a>
-        <a name="" id="" class="btn btn-warning" href="/products" role="button">Cancel</a>
-        
-    </div>
+
+<a name="" id="" class="btn btn-secondary" href="/products" role="button">CANCLE</a>
+<button type="submit" class="btn btn-primary">ADD NEW</button>
+
+</div>
 </form>
 
 <% include ../partials/footer %>
