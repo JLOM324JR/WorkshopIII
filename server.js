@@ -152,20 +152,7 @@ app.post('/user/add_user', function (req, res) {
 app.get('/add_user', function (req, res) {
     res.render('pages/add_user');
 })
-//Update User
- app.post('/users/update', function (req, res) {
-     var id = req.body.id;
-     var email = req.body.email;
-     var password = req.body.password;
-     var sql = `update products set title = '${title}', price = '${price}' where id = '${id}'`;
-     db.query(sql)
-        .then(function(data){
-            response.redirect('/products')
-        })
-        .catch(function(data){
-            console.log('ERROR:'+console.error);
-        })
- });
+
  //Edit User
 app.post('/user/update', function (req, res) {
     var id = req.body.id;
