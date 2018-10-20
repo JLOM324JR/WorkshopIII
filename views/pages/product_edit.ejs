@@ -1,10 +1,14 @@
 <% include ../partials/header %>
-<script language="javascript">
-function fncAlert(){
-
-alert('Do you want to delete product');
-
-}</script>
+<script language="JavaScript">
+  function chkConfirm(){
+    if(confirm('Do you want to delete product')==true){
+      window.location = "/product_delete/<%= product.id %>";
+      
+   }else{
+    return(null);
+  }
+}
+</script>
 <form action = "/product/update" method = "POST">
 
 <div class="form-group">
@@ -28,7 +32,7 @@ alert('Do you want to delete product');
 <div class="text-center">
         <button type = "submit" class="btn btn-success">Save</button>
         <a name="" id="" class="btn btn-warning" href="/products" role="button">Cancel</a>
-        <a  class="btn btn-danger" OnClick="JavaScript:fncAlert();" href="/product_delete/<%= product.id %>" role="button">Delete</a>
+        <a name="btnConfirm" value="Confirm" OnClick="chkConfirm()" class="btn btn-danger" href="#" role="button">DELETE</a>
     </div>
 </form>
 
