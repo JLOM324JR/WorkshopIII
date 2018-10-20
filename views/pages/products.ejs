@@ -1,11 +1,7 @@
 <% include ../partials/header %>
 <script language="javascript">
 function fncAlert(){
-if(alert('Do you want to delete product')==true){
-    window.location = "/product_delete/<%= product.id %>";
-    }else{
-    return(null);
-}
+alert('Do you want to delete product');
 }
 </script>
 <table class="table">
