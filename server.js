@@ -2,6 +2,8 @@ var express = require('express');
 var pgp = require('pg-promise')();
 var db = pgp('postgres://ivkkicwbrksmau:5c299e95162794eb2d24ffab04b1a554075466c03d248e01c2b5fe3eed174dc5@ec2-54-243-147-162.compute-1.amazonaws.com:5432/daf023q10sen3g?ssl=true')
 var app = express();
+var moment = require('moment');
+
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -199,9 +201,9 @@ app.get('/user_delete/:pid', function (req, res) {
             console.log('ERROR:' + error);
         })
 });
-app.get('/insert', function (request, response) {
+app.get('/add_product', function (req, res) {
     var time = moment().format('MMMM Do YYYY, h:mm:ss a');
-    response.render('pages/insert', { time: time});
+    res.render('pages/add_product', { time: time});
 });
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
