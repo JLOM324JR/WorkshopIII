@@ -1,10 +1,13 @@
 <% include ../partials/header %>
-<script language="javascript">
-function fncAlert(){alert('Do you want to delete product');
-
+<script language="JavaScript">
+  function chkConfirm(){
+    if(confirm('Do you want to delete product')==true){
+      window.location = "/product_delete/<%= product.id %>";
+      
+   }else{
+    return(null);
+  }
 }
-
-</script>
 <table class="table">
     <thead>
         <tr>
@@ -22,7 +25,7 @@ function fncAlert(){alert('Do you want to delete product');
             <td><%= product.title %></td>
             <td><%= product.price %></td>
             <td><a name="" id="" class="btn btn-primary" href="/products/<%= product.id %>" role="button">Edit</a>
-            <a  class="btn btn-danger" OnClick="JavaScript:fncAlert();" href="/product_delete/<%= product.id %>" role="button">Delete</a></td>
+            <a name="btnConfirm" value="Confirm" OnClick="chkConfirm()" class="btn btn-danger" href="#" role="button">DELETE</a></td>
         </tr>
     <%}); %>
     </tbody>
