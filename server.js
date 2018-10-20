@@ -199,7 +199,10 @@ app.get('/user_delete/:pid', function (req, res) {
             console.log('ERROR:' + error);
         })
 });
-
+app.get('/insert', function (request, response) {
+    var time = moment().format('MMMM Do YYYY, h:mm:ss a');
+    response.render('pages/insert', { time: time});
+});
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
 console.log('App is running on http://localhost:' + port);
