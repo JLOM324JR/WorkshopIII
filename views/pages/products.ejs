@@ -1,6 +1,6 @@
 <% include ../partials/header %>
 <script language="javascript">
-function fncAlert(){
+function delete(){
 
 alert('Do you want to delete product');
 
@@ -23,9 +23,9 @@ alert('Do you want to delete product');
             <td scope="row"><%= product.id %></td>
             <td><%= product.title %></td>
             <td><%= product.price %></td>
-            
+
             <td><a name="" id="" class="btn btn-primary" href="/products/<%= product.id %>" role="button">Edit</a>
-            <a  class="btn btn-danger" OnClick="JavaScript:fncAlert();" href="/product_delete/<%= product.id %>" role="button">Delete</a></td>
+            <a  class="btn btn-danger" OnClick="JavaScript:delete();" href="/product_delete/<%= product.id %>" role="button">Delete</a></td>
         </tr>
     <%}); %>
     </tbody>
