@@ -135,7 +135,28 @@ app.get('/users/:id', function (req, res) {
             console.log('ERROR : ' + error);
         })
 });
+//Add New User
 
+app.post('/users/add_user', function (req, res) {
+    var id = req.body.id;
+    var email = req.body.email;
+    var password = req.body.password;
+    var sql = `INSERT INTO users (id, email, password)
+    VALUES ('${id}', '${email}', '${password}')`;
+    console.log('UPDATE:' + sql);
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.redirect('/users')
+
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+})
+app.get('/add_user', function (req, res) {
+    res.render('pages/add_user');
+})
 //Update User
  app.post('/users/update', function (req, res) {
      var id = req.body.id;
