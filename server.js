@@ -122,19 +122,16 @@ app.get('/users', function (req, res) {
 //Display User By ID
 app.get('/users/:id', function (req, res) {
     var id = req.params.id;
-    var sql = 'select* from users';
-    if (id) {
-        sql += ' Where id =' + id;
-    }
+    var sql = "select * from users where id =" + id;
     db.any(sql)
         .then(function (data) {
-            console.log('DATA' + data);
-            res.render('pages/user_edit', { users: data[0] })
+            res.render('pages/user_edit', { user: data[0] })
         })
         .catch(function (error) {
             console.log('ERROR : ' + error);
-        })
-});
+        });
+})
+
 //Add New User
 app.post('/user/add_user', function (req, res) {
     var id = req.body.id;
