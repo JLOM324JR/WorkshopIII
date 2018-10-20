@@ -185,6 +185,24 @@ app.post('/user/update', function (req, res) {
        })
 });
 
+//Delete User
+app.get('/user_delete/:pid', function (req, res) {
+    var pid = req.params.pid;
+    var sql = 'DELETE FROM users';
+    if (pid) {
+        sql += ' where id =' + pid;
+    }
+    db.query(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            res.redirect('/users');
+
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+});
+
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
 console.log('App is running on http://localhost:' + port);
