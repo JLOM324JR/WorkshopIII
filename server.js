@@ -46,15 +46,15 @@ app.get('/products/:pid', function (req, res) {
         });
 })
 
-///add_product
-app.get('/addproduct', function (req, res) {
-    res.render('pages/add_product');
-})
-app.post('/add_product', function (req, res) {
+//addnewproduct
+
+app.post('/product/addnew', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;
     var price = req.body.price;
-    var sql = `INSERT INTO products (id, title, price) VALUES ('${id}', '${title}', '${price}')`;
+    var sql = `INSERT INTO products (id, title, price)
+    VALUES ('${id}', '${title}', '${price}')`;
+    //db.none
     console.log('UPDATE:' + sql);
     db.any(sql)
         .then(function (data) {
