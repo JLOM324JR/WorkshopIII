@@ -156,8 +156,8 @@ app.get('/add_user', function (req, res) {
  //Edit User
 app.post('/user/update', function (req, res) {
     var id = req.body.id;
-    var title = req.body.title;
-    var price = req.body.price;
+    var email = req.body.email;
+    var password = req.body.password;
     var sql = `update users set email = '${email}', password = '${password}' where id = '${id}'`;
     db.query(sql)
        .then(function(data){
