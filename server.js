@@ -48,7 +48,7 @@ app.get('/products/:pid', function (req, res) {
 
 //addnewproduct
 
-app.post('/product/addnew', function (req, res) {
+app.post('/product/add_product', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;
     var price = req.body.price;
