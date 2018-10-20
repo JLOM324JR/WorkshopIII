@@ -65,7 +65,9 @@ app.post('/product/add_product', function (req, res) {
         .catch(function (error) {
             console.log('ERROR:' + error);
         })
-
+})
+app.get('/add_product', function (req, res) {
+    res.render('pages/add_product');
 })
 //Edit Product
 app.post('/product/update', function (req, res) {
