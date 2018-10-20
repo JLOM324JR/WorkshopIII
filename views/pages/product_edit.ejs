@@ -1,12 +1,10 @@
 <% include ../partials/header %>
 <script language="javascript">
-function delete(){
+function fncAlert(){
 
 alert('Do you want to delete product');
 
-}
-
-</script>
+}</script>
 <form action = "/product/update" method = "POST">
 
 <div class="form-group">
@@ -30,7 +28,7 @@ alert('Do you want to delete product');
 <div class="text-center">
         <button type = "submit" class="btn btn-success">Save</button>
         <a name="" id="" class="btn btn-warning" href="/products" role="button">Cancel</a>
-        <a  class="btn btn-danger" OnClick="JavaScript:delete();" href="/product_delete/<%= product.id %>" role="button">Delete</a>
+        <a  class="btn btn-danger" OnClick="JavaScript:fncAlert();" href="/product_delete/<%= product.id %>" role="button">Delete</a>
     </div>
 </form>
 
