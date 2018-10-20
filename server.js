@@ -189,7 +189,7 @@ app.get('/add_product', function (req, res) {
 
 //Display All Perchases Item
 app.get('/perchases_item', function (req, res) {
-    db.any('select* from perchasesitem order by id ASC')
+    db.any('select* from PerchasesItems order by id ASC')
         .then(function (data) {
             console.log('DATA' + data);
             res.render('pages/perchases_item', { perchases_item: data })
