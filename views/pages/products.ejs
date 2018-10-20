@@ -16,7 +16,15 @@
             <td><%= product.title %></td>
             <td><%= product.price %></td>
             <td><a name="" id="" class="btn btn-primary" href="/products/<%= product.id %>" role="button">Edit</a></td>
-            <td><a  class="btn btn-danger" href="/product_delete/<%= product.id %>" role="button">Delete</a></td>
+            <td><a  class="btn btn-danger" href="/product_delete/<%= product.id %>" role="button">Delete
+            <script language="javascript">
+function fncAlert(){
+
+alert('Do you want to delete product');
+
+}
+
+</script></a></td>
         </tr>
     <%}); %>
     </tbody>
