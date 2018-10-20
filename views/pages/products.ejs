@@ -1,12 +1,11 @@
 <% include ../partials/header %>
 <script language="javascript">
 function fncAlert(){
- if(confirm('Do you want to delete product')==true){
-      window.location = "/product_delete/<%= product.id %>";
-      
-   }else{
+if(alert('Do you want to delete product')==true){
+    window.location = "/product_delete/<%= product.id %>";
+    }else{
     return(null);
-  }
+}
 }
 </script>
 <table class="table">
