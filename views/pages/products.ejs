@@ -20,7 +20,7 @@ function edit(){ alert('Do you want to edit this product');}
             <td><%= product.title %></td>
             <td><%= product.price %></td>
 
-            <td><a name="" id="" OnClick="JavaScript:delete();" class="btn btn-primary" href="/products/<%= product.id %>" role="button">Edit</a>
+            <td><a name="" id="" class="btn btn-primary" OnClick="JavaScript:edit();"href="/products/<%= product.id %>" role="button">Edit</a>
             <a  class="btn btn-danger" OnClick="JavaScript:delete();" href="/product_delete/<%= product.id %>" role="button">Delete</a></td>
         </tr>
     <%}); %>
