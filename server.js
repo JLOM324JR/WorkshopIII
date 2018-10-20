@@ -47,7 +47,7 @@ app.get('/products/:pid', function (req, res) {
 })
 
 ///add_product
-app.get('products/add_product', function (req, res) {
+app.get('/addproduct', function (req, res) {
     res.render('pages/add_product');
 })
 app.post('/add_product', function (req, res) {
