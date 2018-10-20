@@ -5,7 +5,7 @@ alert('Do you want to delete product');
 }
 </script>
 
-<input class="form-control" id="myInput" type="text" placeholder="Search.." padding = "Auto">
+<input class="form-control" id="myInput" type="text" placeholder="Search.." padding = "10">
 <table class="table">
     <thead>
         <tr>
@@ -16,7 +16,7 @@ alert('Do you want to delete product');
             </th>
         </tr>
     </thead>
-    <tbody id="myTable" cellpadding="10">
+    <tbody id="myTable">
     <% users.forEach(function(user) {%>
         <tr>
             <td scope="row"><%= user.id %></td>
