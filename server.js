@@ -53,9 +53,7 @@ app.post('/product/add_product', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;
     var price = req.body.price;
-    var create_at =req.body.create_at;
-    var tags =req.body.tags;
-    var sql = `INSERT INTO products (id, title, price) VALUES ('${id}', '${title}', '${price}','${create_at}','${tags}')`;
+    var sql = `INSERT INTO products (id, title, price) VALUES ('${id}', '${title}', '${price}')`;
     console.log('UPDATE:' + sql);
     db.any(sql)
         .then(function (data) {
@@ -72,9 +70,7 @@ app.post('/product/update', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;
     var price = req.body.price;
-    var create_at =req.body.create_at;
-    var tags =req.body.tags;
-    var sql = `update products set title = '${title}', price = '${price}', create_at ='${create_at}', tags = '${tags}' where id = '${id}'`;
+    var sql = `update products set title = '${title}', price = '${price}' where id = '${id}'`;
     db.query(sql)
        .then(function(data){
            res.redirect('/products')
