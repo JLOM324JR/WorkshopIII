@@ -196,7 +196,7 @@ app.get('/user_delete/:pid', function (req, res) {
             console.log('ERROR:' + error);
         })
 });
-
++
 //Display All Purchases Item
 app.get('/purchases', function (req, res) {
     db.any('SELECT purchases.id, name, address, users.email FROM purchases INNER JOIN users ON purchases.user_id = users.id')
