@@ -110,6 +110,7 @@ app.get('/product_delete/:pid', function (req, res) {
 //Display All Users
 app.get('/users', function (req, res) {
     var id = req.param('id');
+    
     var sql = 'select* from users';
     if (id) {
         sql += ' Where id =' + id;
@@ -127,10 +128,11 @@ app.get('/users', function (req, res) {
 //Display User By ID
 app.get('/users/:id', function (req, res) {
     var id = req.params.id;
+    var time = moment().format();
     var sql = "select * from users where id =" + id;
     db.any(sql)
         .then(function (data) {
-            res.render('pages/user_edit', { user: data[0] })
+            res.render('pages/user_edit', { user: data[0],time:time })
         })
         .catch(function (error) {
             console.log('ERROR : ' + error);
@@ -142,6 +144,7 @@ app.post('/user/add_user', function (req, res) {
     var id = req.body.id;
     var email = req.body.email;
     var password = req.body.password;
+    var time = req.body.time;
     var sql = `INSERT INTO users (id, email, password)
     VALUES ('${id}', '${email}', '${password}')`;
     console.log('UPDATE:' + sql);
@@ -156,7 +159,8 @@ app.post('/user/add_user', function (req, res) {
         })
 })
 app.get('/add_user', function (req, res) {
-    res.render('pages/add_user');
+    var time = moment().format();
+    res.render('pages/add_user',{time:time});
 })
 
  //Edit User
