@@ -53,9 +53,9 @@ app.post('/product/add_product', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;
     var price = req.body.price;
-    var create_at = req.body.create_at;
+    var time = req.body.create_at;
     var tags = req.body.tags;
-    var sql = `INSERT INTO products (id, title, price) VALUES ('${id}', '${title}', '${price}', '${create_at}', '${tags}')`;
+    var sql = `INSERT INTO products (id, title, price,create_at,tags) VALUES ('${id}', '${title}', '${price}', '${time}', '${tags}')`;
     console.log('UPDATE:' + sql);
     db.any(sql)
         .then(function (data) {
@@ -185,7 +185,7 @@ app.get('/user_delete/:pid', function (req, res) {
         })
 });
 app.get('/add_product', function (req, res) {
-    var time = moment().format('MMMM Do YYYY, h:mm:ss a');
+    var time = moment().format();
     res.render('pages/add_product', { time: time});
 });
 
