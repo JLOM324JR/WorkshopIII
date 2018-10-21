@@ -187,6 +187,17 @@ app.get('/add_product', function (req, res) {
     res.render('pages/add_product', { time: time});
 });
 
+//Display All Purchases Item
+app.get('/purchases_item', function (req, res) {
+    db.any('SELECT purchases.id, name, address, users.email FROM purchases INNER JOIN users ON purchases.user_id = users.id')
+        .then(function (data) {
+            console.log('DATA' + data);
+            res.render('pages/purchases_item', { products: data })
+        })
+        .catch(function (error) {
+            console.log('ERROR : ' + error);
+        });
+})
 
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
