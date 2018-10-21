@@ -37,10 +37,11 @@ app.get('/products', function (req, res) {
 //Display Products by ID
 app.get('/products/:pid', function (req, res) {
     var pid = req.params.pid;
+    var time = moment().format();
     var sql = "select * from products where id =" + pid;
     db.any(sql)
         .then(function (data) {
-            res.render('pages/product_edit', { product: data[0] })
+            res.render('pages/product_edit', { product: data[0],time:time })
         })
         .catch(function (error) {
             console.log('ERROR : ' + error);
@@ -69,6 +70,10 @@ app.post('/product/add_product', function (req, res) {
             console.log('ERROR:' + error);
         })
 })
+app.get('/add_product', function (req, res) {
+    var time = moment().format();
+    res.render('pages/add_product', { time: time});
+});
 //Edit Product
 app.post('/product/update', function (req, res) {
     var id = req.body.id;
@@ -187,10 +192,7 @@ app.get('/user_delete/:pid', function (req, res) {
             console.log('ERROR:' + error);
         })
 });
-app.get('/add_product', function (req, res) {
-    var time = moment().format();
-    res.render('pages/add_product', { time: time});
-});
+
 
 //Display All Purchases Item
 app.get('/purchases', function (req, res) {
