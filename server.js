@@ -196,17 +196,6 @@ app.get('/user_delete/:pid', function (req, res) {
         })
 });
 +
-//Display All Purchases Item
-app.get('/purchases', function (req, res) {
-    db.any('SELECT purchases.id, name, address, users.email FROM purchases INNER JOIN users ON purchases.user_id = users.id')
-        .then(function (data) {
-            console.log('DATA' + data);
-            res.render('pages/purchases', { products: data })
-        })
-        .catch(function (error) {
-            console.log('ERROR : ' + error);
-        });
-})
 
 //report Products
 app.get('/report_product', function (req, res) {
@@ -227,11 +216,11 @@ app.get('/report_product', function (req, res) {
 
 });
 //report user
-app.get('/report_user', function (req, res) {
+app.get('/purchases', function (req, res) {
     db.any('select * from users ORDER BY  email ASC', )
         .then(function (data) {
             console.log('DATA' + data);
-            res.render('pages/report_user', { users: data })
+            res.render('pages/purchases', { purchases: data })
 
         })
         .catch(function (error) {
