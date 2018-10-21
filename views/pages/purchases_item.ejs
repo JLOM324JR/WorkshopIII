@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+
+ <br>
+ <h2>Report Purchases Item List</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Itemname</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+     <% item.forEach(function(items){ %>
+        <tr>
+            <td scope="row"><%= items.title %></td>
+            <td><%= items.quantity %></td>
+            <td><%= items.price %></td>
+           
+        </tr>
+      <% }); %>
+    </tbody>
+</table>
+
+
+
+
+
+
+  <% include ../partials/footer %>

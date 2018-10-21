@@ -1,21 +1,25 @@
 <% include ../partials/header %>
 
  <br>
- <h2>Sorter By A-Z</h2>
+ <h2>Report Purchases List</h2>
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Name</th>
             <th>E-mail</th>
-            <th>Password</th>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Amount</th>
         </tr>
     </thead>
     <tbody id="myTable">
-     <% purchases.forEach(function(purchases){ %>
+     <% purchases.forEach(function(purchas){ %>
         <tr>
-            <td scope="row"><%= purchases.id %></td>
-            <td><%= purchases.email %></td>
-            <td><%= purchases.password %></td>
+            <td scope="row"><%= purchas.name %></td>
+            <td><%= purchas.email %></td>
+            <td><%= purchas.title %></td>
+            <td><%= purchas.quantity %></td>
+            <td><%= purchas.total %></td>
         </tr>
       <% }); %>
     </tbody>
