@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Purchases ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+    <% products.forEach(function(purchases_item) {%>
+        <tr>
+            <td scope="row"><%= purchases_item.id %></td>
+            <td><%= purchases_item.name %></td>
+            <td><%= purchases_item.address %></td>
+            <td><%= purchases_item.email %></td>
+        </tr>
+    <%}); %>
+    </tbody>
+</table>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+<% include ../partials/footer %>
