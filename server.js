@@ -164,7 +164,8 @@ app.post('/user/update', function (req, res) {
     var id = req.body.id;
     var email = req.body.email;
     var password = req.body.password;
-    var sql = `update users set email = '${email}', password = '${password}' where id = '${id}'`;
+    var time = req.body.time;
+    var sql = `update users set email = '${email}', password = '${password}', created_at = '${time}' where id = '${id}'`;
     db.query(sql)
        .then(function(data){
            res.redirect('/users')
