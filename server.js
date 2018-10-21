@@ -24,7 +24,7 @@ app.get('/about', function (req, res) {
 
 //Display All Products
 app.get('/products', function (req, res) {
-    db.any('select* from products order by id ASC')
+    db.any('select* from products order by product_id ASC')
         .then(function (data) {
             console.log('DATA' + data);
             res.render('pages/products', { products: data })
@@ -38,7 +38,7 @@ app.get('/products', function (req, res) {
 app.get('/products/:pid', function (req, res) {
     var pid = req.params.pid;
     var time = moment().format();
-    var sql = "select * from products where id =" + pid;
+    var sql = "select * from products where product_id =" + pid;
     db.any(sql)
         .then(function (data) {
             res.render('pages/product_edit', { product: data[0],time:time })
@@ -56,7 +56,7 @@ app.post('/product/add_product', function (req, res) {
     var time = req.body.time;
     // var tags = req.body.tags;
     
-    var sql = `INSERT INTO products (id, title, price,created_at) VALUES ('${id}', '${title}', '${price}', '${time}')`;
+    var sql = `INSERT INTO products (product_id, title, price,created_at) VALUES ('${id}', '${title}', '${price}', '${time}')`;
     // res.send(sql)
     console.log('UPDATE:' + sql);
     db.any(sql)
@@ -79,7 +79,7 @@ app.post('/product/update', function (req, res) {
     var title = req.body.title;
     var price = req.body.price;
     var time = req.body.time;
-    var sql = `update products set title = '${title}', price = '${price}', created_at = '${time}' where id = '${id}'`;
+    var sql = `update products set title = '${title}', price = '${price}', created_at = '${time}' where product_id = '${id}'`;
     db.query(sql)
        .then(function(data){
            res.redirect('/products')
@@ -94,7 +94,7 @@ app.get('/product_delete/:pid', function (req, res) {
     var pid = req.params.pid;
     var sql = 'DELETE FROM products';
     if (pid) {
-        sql += ' where id =' + pid;
+        sql += ' where product_id =' + pid;
     }
     db.query(sql)
         .then(function (data) {
@@ -111,9 +111,9 @@ app.get('/product_delete/:pid', function (req, res) {
 app.get('/users', function (req, res) {
     var id = req.param('id');
     
-    var sql = 'select* from users';
+    var sql = 'select* from users order by user_id ASC';
     if (id) {
-        sql += ' Where id =' + id;
+        sql += ' Where user_id =' + id;
     }
     db.any(sql)
         .then(function (data) {
@@ -129,7 +129,7 @@ app.get('/users', function (req, res) {
 app.get('/users/:id', function (req, res) {
     var id = req.params.id;
     var time = moment().format();
-    var sql = "select * from users where id =" + id;
+    var sql = "select * from users where user_id =" + id;
     db.any(sql)
         .then(function (data) {
             res.render('pages/user_edit', { user: data[0],time:time })
@@ -145,7 +145,7 @@ app.post('/user/add_user', function (req, res) {
     var email = req.body.email;
     var password = req.body.password;
     var time = req.body.time;
-    var sql = `INSERT INTO users (id, email, password,created_at) VALUES ('${id}', '${email}', '${password}', '${time}')`;
+    var sql = `INSERT INTO users (user_id, email, password,created_at) VALUES ('${id}', '${email}', '${password}', '${time}')`;
     console.log('UPDATE:' + sql);
     db.any(sql)
         .then(function (data) {
@@ -168,7 +168,7 @@ app.post('/user/update', function (req, res) {
     var email = req.body.email;
     var password = req.body.password;
     var time = req.body.time;
-    var sql = `update users set email = '${email}', password = '${password}', created_at = '${time}' where id = '${id}'`;
+    var sql = `update users set email = '${email}', password = '${password}', created_at = '${time}' where user_id = '${id}'`;
     db.query(sql)
        .then(function(data){
            res.redirect('/users')
@@ -183,7 +183,7 @@ app.get('/user_delete/:pid', function (req, res) {
     var pid = req.params.pid;
     var sql = 'DELETE FROM users';
     if (pid) {
-        sql += ' where id =' + pid;
+        sql += ' where user_id =' + pid;
     }
     db.query(sql)
         .then(function (data) {
