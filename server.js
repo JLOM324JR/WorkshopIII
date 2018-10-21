@@ -197,7 +197,7 @@ app.get('/user_delete/:pid', function (req, res) {
 });
 +
 
-//report product
+//report purchases Item
 app.get('/purchases_item', function(req, res){
     var sql ='select products.product_id,products.title,sum(purchase_items.quantity) as quantity,sum(purchase_items.price) as price from products inner join purchase_items on purchase_items.product_id=products.product_id group by products.product_id;select sum(quantity) as squantity,sum(price) as sprice from purchase_items';
     db.multi(sql)
@@ -213,6 +213,7 @@ app.get('/purchases_item', function(req, res){
     })
 
 });
+//Report Purchases
 app.get('/purchases', function(req, res) {
     var sql='select users.email,purchases.name,products.title,purchase_items.quantity,purchase_items.price*purchase_items.quantity as tatol FROM users INNER JOIN purchases ON purchases.user_id = users.user_id INNER JOIN purchase_items ON purchase_items.purchase_id=purchases.purchase_id   INNER JOIN products ON products.product_id = purchase_items.product_id order by purchase_items.price*purchase_items.quantity DESC limit 25'
     db.any(sql)
