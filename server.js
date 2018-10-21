@@ -49,7 +49,6 @@ app.get('/products/:pid', function (req, res) {
 })
 
 //addnewproduct
-
 app.post('/product/add_product', function (req, res) {
     var id = req.body.id;
     var title = req.body.title;
@@ -192,7 +191,6 @@ app.get('/user_delete/:pid', function (req, res) {
             console.log('ERROR:' + error);
         })
 });
-
 
 //Display All Purchases Item
 app.get('/purchases', function (req, res) {
