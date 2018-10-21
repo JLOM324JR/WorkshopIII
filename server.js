@@ -111,7 +111,7 @@ app.get('/product_delete/:pid', function (req, res) {
 app.get('/users', function (req, res) {
     var id = req.param('id');
     
-    var sql = 'select* from users';
+    var sql = 'select* from users order by ASC';
     if (id) {
         sql += ' Where id =' + id;
     }
