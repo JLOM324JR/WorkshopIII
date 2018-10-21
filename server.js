@@ -188,11 +188,11 @@ app.get('/add_product', function (req, res) {
 });
 
 //Display All Purchases Item
-app.get('/purchases_item', function (req, res) {
+app.get('/purchases', function (req, res) {
     db.any('SELECT purchases.id, name, address, users.email FROM purchases INNER JOIN users ON purchases.user_id = users.id')
         .then(function (data) {
             console.log('DATA' + data);
-            res.render('pages/purchases_item', { products: data })
+            res.render('pages/purchases', { products: data })
         })
         .catch(function (error) {
             console.log('ERROR : ' + error);
