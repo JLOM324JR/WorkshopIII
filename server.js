@@ -28,7 +28,7 @@ app.get('/about', function (req, res) {
 app.get('/products', function (req, res) {
     db.any('select* from products order by product_id ASC')
         .then(function (data) {
-            console.log('DATA' + data);
+            console.log(data.length+1);
             res.render('pages/products', { products: data })
         })
         .catch(function (error) {
@@ -56,10 +56,7 @@ app.post('/product/add_product', function (req, res) {
     var title = req.body.title;
     var price = req.body.price;
     var time = req.body.time;
-    // var tags = req.body.tags;
-    
     var sql = `INSERT INTO products (product_id, title, price,created_at) VALUES ('${id}', '${title}', '${price}', '${time}')`;
-    // res.send(sql)
     console.log('UPDATE:' + sql);
     db.any(sql)
         .then(function (data) {
@@ -73,7 +70,14 @@ app.post('/product/add_product', function (req, res) {
 })
 app.get('/add_product', function (req, res) {
     var time = moment().format();
-    res.render('pages/add_product', { time: time});
+    var sql = 'select* from products order by product_id ASC';
+    db.any(sql)
+        .then(function (data) {
+            res.render('pages/add_product',{time:time, proid: data.length+1});
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
 });
 //Edit Product
 app.post('/product/update', function (req, res) {
@@ -119,7 +123,7 @@ app.get('/users', function (req, res) {
     }
     db.any(sql)
         .then(function (data) {
-            console.log('DATA' + data);
+            console.log(data.length+1);
             res.render('pages/users', { users: data })
         })
         .catch(function (error) {
@@ -161,7 +165,15 @@ app.post('/user/add_user', function (req, res) {
 })
 app.get('/add_user', function (req, res) {
     var time = moment().format();
-    res.render('pages/add_user',{time:time});
+    var sql = 'select* from users order by user_id ASC';
+    db.any(sql)
+        .then(function (data) {
+            res.render('pages/add_user',{time:time, newid: data.length+1});
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+
 })
 
  //Edit User

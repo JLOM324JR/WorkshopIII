@@ -5,7 +5,7 @@
             <h1 class="display-4">ADD NEW USER</h1>
             <div class="form-group" style="font-size: 20px">
                 <label for="">ID</label>
-                <input type="number" class="form-control" name="id" id="" aria-describedby="helpId" placeholder="ID">
+                <input type="number" value="<%= newid %>" class="form-control" name="id" id="" aria-describedby="helpId" placeholder="ID">
                 <small id="helpId" class="form-text text-muted"></small>
             </div>
 
@@ -29,7 +29,7 @@
               <input type="text" class="form-control" value="<%= time %>"name="time" id="" aria-describedby="helpId" placeholder="" >
             </div>
 
-            <a name="" id="" class="btn btn-secondary" href="/users" role="button">CANCLE</a>
+            <a name="" id="" class="btn btn-warning" href="/users" role="button">CANCLE</a>
             <button type="submit" class="btn btn-primary">ADD NEW</button>
 
       </div>

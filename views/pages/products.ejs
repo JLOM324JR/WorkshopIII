@@ -1,9 +1,4 @@
 <% include ../partials/header %>
-    <script language="javascript">
-        function fncAlert(){
-            alert('Do you want to delete product');
-        }
-    </script>
     <div class="jumbotron" align="center" style="background-color : #FFFFE0">
         <h1>Search Product</h1>
         <input class="form-control" id="myInput" type="text" placeholder="Search..">
@@ -24,10 +19,28 @@
                         <td><%= product.title %></td>
                         <td><%= product.price %></td>
                         <td><a name="" id="" class="btn btn-primary" href="/products/<%= product.product_id %>" role="button">Edit</a>
-                        <a  class="btn btn-danger" OnClick="JavaScript:fncAlert();" href="/product_delete/<%= product.product_id %>" role="button">Delete</a></td>
+                            <button type="button" class="btn btn-danger" data-target="#exampleModalCenter" onclick="deleteProduct(<%= product.product_id %>);">Delete</button>
+                        </td>
                     </tr>
                 <%}); %>
             </tbody>
+             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Alert</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">DO YOU WANT DELETE THIS PRODUCT
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+                        <button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+                    </div>
+                </div>
+            </div>
         </table>
     </div>
     <script>
@@ -39,5 +52,17 @@
                 });
             });
         });
+    </script>
+    <script>
+        var selectedProduct = 0;
+        function deleteProduct(id){
+            console.log(id);
+            selectedProduct = id;
+            $('#exampleModalCenter').modal('show')
+        }
+        function confirmDelete(){
+            console.log('confirm:'+selectedProduct);
+            window.location.href = '/product_delete/'+selectedProduct;
+        }        
     </script>
 <% include ../partials/footer %>
