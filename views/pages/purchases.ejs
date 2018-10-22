@@ -1,11 +1,11 @@
 <% include ../partials/header %>
     <div class="jumbotron" align="center" style="background-color : #FFFFE0">
-        <h2>Report Purchases List</h2>
+        <h1>Report Purchases List</h1>
         
         <input class="form-control" id="myInput" type="text" placeholder="Search..">
         <table class="table">
             <thead>
-                <tr>
+                <tr style="font-size: 24px">
                     <th>Name</th>
                     <th>E-mail</th>
                     <th>Title</th>
@@ -16,7 +16,7 @@
             
             <tbody id="myTable">
                 <% purchases.forEach(function(purchas){ %>
-                    <tr>
+                    <tr style="font-size: 20px">
                         <td scope="row"><%= purchas.name %></td>
                         <td><%= purchas.email %></td>
                         <td><%= purchas.title %></td>

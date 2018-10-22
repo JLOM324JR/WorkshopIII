@@ -5,12 +5,12 @@
         }
     </script>
     <div class="jumbotron" align="center" style="background-color : #FFFFE0">
-        <h2>Search Product</h2>
+        <h1>Search Product</h1>
         <input class="form-control" id="myInput" type="text" placeholder="Search..">
         
         <table class="table">
             <thead>
-                <tr>
+                <tr style="font-size: 24px">
                     <th>ID</th>
                     <th>TITLE</th>
                     <th>PRICE</th>
@@ -19,7 +19,7 @@
             </thead>
             <tbody id="myTable">
                 <% products.forEach(function(product) {%>
-                    <tr>
+                    <tr style="font-size: 20px">
                         <td scope="row"><%= product.product_id %></td>
                         <td><%= product.title %></td>
                         <td><%= product.price %></td>

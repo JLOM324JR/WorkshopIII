@@ -9,33 +9,34 @@
         }
     </script>
     <form action = "/user/update" method = "POST">
-        <div class="jumbotron" align="center" style="background-color : #FFFFE0">
-            <div class="form-group">
+        <div class="jumbotron" style="background-color : #FFFFE0" style="font-size: 24px">
+        <h1 class="display-4">EDITE USER INFO.</h1>
+            <div class="form-group" style="font-size: 20px">
                 <label for="">ID</label>
                 <input type="number" class="form-control" value = "<%= user.user_id %>" name="id" id="" aria-describedby="helpId" placeholder="">
                 <small id="helpId" class="form-text text-muted">User ID</small>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="font-size: 20px">
                 <label for="">Email</label>
                 <input type="text" class="form-control" value = "<%= user.email %>" name="email" id="" aria-describedby="helpId" placeholder="">
                 <small id="helpId" class="form-text text-muted">User Email</small>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="font-size: 20px">
                 <label for="">Password</label>
                 <input type="text" class="form-control" value = "<%= user.password %>" name="password" id="" aria-describedby="helpId" placeholder="">
                 <small id="helpId" class="form-text text-muted">User Password</small>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="font-size: 20px">
                 <label for="">Time</label>
                 <input type="text" class="form-control" value="<%= time %>"name="time" id="" aria-describedby="helpId" placeholder="" >
             </div>
 
-            <div class="text-center">
-                <button type = "submit" class="btn btn-success">Save</button>
-                <a name="" id="" class="btn btn-warning" href="/users" role="button">Cancel</a>
+            <div class="text-center" style="font-size: 20px">
+                <button type = "submit" class="btn btn-info">SAVE</button>
+                <a name="" id="" class="btn btn-warning" href="/users" role="button">CANCLE</a>
                 <a name="btnConfirm" value="Confirm" OnClick="chkConfirm()" class="btn btn-danger" href="#" role="button">DELETE</a>
             </div>
         </div>

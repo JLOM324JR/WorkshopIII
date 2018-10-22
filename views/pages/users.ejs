@@ -5,13 +5,13 @@
         }
     </script>
     <div class="jumbotron" align="center" style="background-color : #FFFFE0">
-        <h2>Search User</h2>
+        <h1>Search User</h1>
 
         <input class="form-control" id="myInput" type="text" placeholder="Search..">
         
         <table class="table">
             <thead>
-                <tr>
+                <tr style="font-size: 24px" >
                     <th>ID</th>
                     <th>EMAIL</th>
                     <th>PASSWORD</th>
@@ -22,7 +22,7 @@
             
             <tbody id="myTable">
                 <% users.forEach(function(user) {%>
-                    <tr>
+                    <tr style="font-size: 20px" >
                         <td scope="row"><%= user.user_id %></td>
                         <td><%= user.email %></td>
                         <td><%= user.password %></td>

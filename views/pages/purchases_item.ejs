@@ -1,12 +1,12 @@
 <% include ../partials/header %>
     <div class="jumbotron" align="center" style="background-color : #FFFFE0">
-        <h2>Report Purchases Item List</h2>
+        <h1>Report Purchases Item List</h1>
 
         <input class="form-control" id="myInput" type="text" placeholder="Search..">
 
         <table class="table">
             <thead>
-                <tr>
+                <tr style="font-size: 24px">
                     <th>Itemname</th>
                     <th>Quantity</th>
                     <th>Amount</th>
@@ -14,7 +14,7 @@
             </thead>
             <tbody id="myTable">
                 <% item.forEach(function(items){ %>
-                    <tr>
+                    <tr style="font-size: 20px">
                         <td scope="row"><%= items.title %></td>
                         <td><%= items.quantity %></td>
                         <td><%= items.price %></td>
