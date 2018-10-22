@@ -1,37 +1,76 @@
 <% include ../partials/header %>
     <div class="jumbotron" align="center" style="background-color : #FFFFE0">
-        <h1>Report Purchases Item List</h1>
-
-        <input class="form-control" id="myInput" type="text" placeholder="Search..">
-
+        <h1 class="text-left">All Purchases Item</h1>
         <table class="table">
             <thead>
                 <tr style="font-size: 24px">
-                    <th>Itemname</th>
-                    <th>Quantity</th>
-                    <th>Amount</th>
+                <th>ITEM NAME</th>
+                <th>QUANTITY PURCHASED</th>
+                <th>AMOUNT</th>
                 </tr>
             </thead>
             <tbody id="myTable">
-                <% item.forEach(function(items){ %>
+                <% products.forEach(function(product) { %>
                     <tr style="font-size: 20px">
-                        <td scope="row"><%= items.title %></td>
-                        <td><%= items.quantity %></td>
-                        <td><%= items.price %></td>
+                        <td scope="row"><%= product.title %></font></td>
+                        <td><%= product.quantity %></font></td>
+                        <td>$<%= product.price %></font></td>
+                    </tr>
+                <% }); %>
+                <% sum.forEach(function(sum) { %>
+                    <tr style="font-size: 20px">
+                        <td scope="row"><h5>Total</h5></td>
+                        <td id="quantity"><h5><%= sum.squantity %></h5></td>
+                        <td id="price"><h5>$<%= sum.sprice %></h5></td>
                     </tr>
                 <% }); %>
             </tbody>
         </table>
-    </div>
-    <script>
-        $(document).ready(function(){
+        <canvas id="bar-chart" width="800" height="450"></canvas>
+        <script>
+            $(document).ready(function(){
             $("#myInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
                 $("#myTable tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
-              });
-          });
-    </script>
-
+            });
+            });
+            <%
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF'.split('');
+                var color = '#';
+                for (var i = 0; i < 6; i++ ) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }return color;}
+            var labelss=[]
+            var data=[]
+            var color=[]
+            products.forEach(function(product) { 
+                var colors =getRandomColor()
+                labelss.push("'" + product.title + "'");
+                color.push("'" +colors + "'");
+                data.push(product.price);
+            }); %>
+        
+            new Chart(document.getElementById("bar-chart"), {
+                type: 'bar',
+                data: {
+                    labels:[<%-labelss%>], 
+                    datasets:[{
+                        label: "Products",
+                        backgroundColor: [<%-color%>],   
+                        data:  [<%=data%>]
+                    }]
+                },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: 'All Purchases Item'
+                }
+            }
+            });
+</script>
+</div>
 <% include ../partials/footer %>

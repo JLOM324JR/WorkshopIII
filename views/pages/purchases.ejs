@@ -1,32 +1,30 @@
 <% include ../partials/header %>
     <div class="jumbotron" align="center" style="background-color : #FFFFE0">
-        <h1>Report Purchases List</h1>
-        
-        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+        <h1 class="text-left">Purchases Top 30</h1>
         <table class="table">
             <thead>
                 <tr style="font-size: 24px">
                     <th>Name</th>
-                    <th>E-mail</th>
-                    <th>Title</th>
+                    <th>Email</th>
+                    <th>title</th>
                     <th>Quantity</th>
-                    <th>Amount</th>
+                    <th>Total Sales</th>
                 </tr>
             </thead>
-            
             <tbody id="myTable">
-                <% purchases.forEach(function(purchas){ %>
+                <% users.forEach(function(user) { %>
                     <tr style="font-size: 20px">
-                        <td scope="row"><%= purchas.name %></td>
-                        <td><%= purchas.email %></td>
-                        <td><%= purchas.title %></td>
-                        <td><%= purchas.quantity %></td>
-                        <td><%= purchas.tatol %></td>
+                        <td scope="row"><%= user.name %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.title %></td>
+                        <td><%= user.quantity %></td>
+                        <td>$<%= user.tatol %></td>
                     </tr>
                 <% }); %>
             </tbody>
         </table>
-    </div>
+        
+    <canvas id="bar-chart" width="800" height="450"></canvas>
     <script>
         $(document).ready(function(){
             $("#myInput").on("keyup", function() {
@@ -35,7 +33,46 @@
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-        });
-    </script>
+        });<%
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }return color;
+    }
+    var labelss=[]
+    var data=[]
+    var color=[]
+    users.forEach(function(user) { 
+        var colors =getRandomColor()
+        labelss.push("'" + user.name + "'");
+        color.push("'" +colors + "'");
+        data.push(user.tatol);
+    }); %>
 
-<% include ../partials/footer %>
+    new Chart(document.getElementById("bar-chart"), {
+        type: 'bar',
+        data: {
+        labels:[<%-labelss%>], 
+        datasets:[{
+            label: "Products",
+                    backgroundColor: [<%-color%>],   
+            data:  [<%=data%>]
+            }] 
+        },
+        options: {
+            legend: { display: false },
+            title: {
+            display: true,
+            text: 'Purchases Top 30'
+            }
+        }
+        });
+
+
+
+
+</script>
+</div>
+  <% include ../partials/footer %>
