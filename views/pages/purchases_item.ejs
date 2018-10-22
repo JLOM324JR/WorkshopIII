@@ -18,10 +18,10 @@
                     </tr>
                 <% }); %>
                 <% sum.forEach(function(sum) { %>
-                    <tr style="font-size: 20px">
-                        <td scope="row"><h5>Total</h5></td>
-                        <td id="quantity"><h5><%= sum.squantity %></h5></td>
-                        <td id="price"><h5>$<%= sum.sprice %></h5></td>
+                    <tr style="font-size: 24px">
+                        <td scope="row">Total</td>
+                        <td id="quantity"><%= sum.squantity %></td>
+                        <td id="price">$<%= sum.sprice %></td>
                     </tr>
                 <% }); %>
             </tbody>
