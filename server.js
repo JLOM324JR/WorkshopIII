@@ -20,7 +20,8 @@ app.get('/about', function (req, res) {
     var id = 'ID : 5930213024';
     var major = 'Major : Software Engineering';
     var bdate = 'Birthdate 14/07/1997'
-    res.render('pages/about', { name: name,id: id, major: major, bdate: bdate });
+    var hobbies = ['Football', 'Movie', 'Programming']
+    res.render('pages/about', { name: name,id: id, major: major, bdate: bdate, hobbies: hobbies });
 });
 
 //Display All Products

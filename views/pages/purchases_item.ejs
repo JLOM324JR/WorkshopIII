@@ -1,28 +1,28 @@
 <% include ../partials/header %>
+    <div class="jumbotron" align="center" style="background-color : #FFFFE0">
+        <h2>Report Purchases Item List</h2>
 
-    <h2>Report Purchases Item List</h2>
+        <input class="form-control" id="myInput" type="text" placeholder="Search..">
 
-    <input class="form-control" id="myInput" type="text" placeholder="Search..">
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Itemname</th>
-                <th>Quantity</th>
-                <th>Amount</th>
-            </tr>
-        </thead>
-        <tbody id="myTable">
-            <% item.forEach(function(items){ %>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td scope="row"><%= items.title %></td>
-                    <td><%= items.quantity %></td>
-                    <td><%= items.price %></td>
+                    <th>Itemname</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
                 </tr>
-            <% }); %>
-          </tbody>
-    </table>
-
+            </thead>
+            <tbody id="myTable">
+                <% item.forEach(function(items){ %>
+                    <tr>
+                        <td scope="row"><%= items.title %></td>
+                        <td><%= items.quantity %></td>
+                        <td><%= items.price %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
     <script>
         $(document).ready(function(){
             $("#myInput").on("keyup", function() {

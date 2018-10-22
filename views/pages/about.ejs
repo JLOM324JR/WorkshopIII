@@ -1,11 +1,16 @@
 <% include ../partials/header %>
    
-    <div class="jumbotron" style="background-color : #FFCCFF" >
+    <div class="jumbotron" style="background-color : #FFFFE0" >
         <div class = "cover" align = "center" >
             <h1 ><%= name%></h1>
             <h2 ><%= id%></h2>
             <h2 ><%= major%></h2>
             <h3 ><%= bdate%></h3>
+            <ul>
+                <% hobbies.forEach(function(hobby) { %>
+                    <li><%= hobby %> </li>
+                    <% }); %>
+            </ul>
             
         </div>
     </div>
