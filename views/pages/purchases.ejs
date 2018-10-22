@@ -1,6 +1,7 @@
 <% include ../partials/header %>
     <div class="jumbotron" align="center" style="background-color : #FFFFE0">
         <h1 class="messege">Purchases Top 30</h1>
+        <canvas id="bar-chart" width="800" height="450"></canvas>
         <table class="table">
             <thead>
                 <tr style="font-size: 24px">
@@ -24,7 +25,7 @@
             </tbody>
         </table>
         
-    <canvas id="bar-chart" width="800" height="450"></canvas>
+    
     <script>
         $(document).ready(function(){
             $("#myInput").on("keyup", function() {
