@@ -1,6 +1,6 @@
 <% include ../partials/header %>
   <script language="JavaScript">
-      function chkConfirm(){
+      function confirm(){
           if(confirm('Do you want to delete product')==true){
               window.location = "/user_delete/<%= user.user_id %>";
           }else{
@@ -31,7 +31,7 @@
         <div class="text-center">
             <button type = "submit" class="btn btn-success">Save</button>
             <a name="" id="" class="btn btn-warning" href="/users" role="button">Cancel</a>
-            <a name="btnConfirm" value="Confirm" OnClick="chkConfirm()" class="btn btn-danger" href="#" role="button">DELETE</a>
+            <a name="btnConfirm" value="Confirm" OnClick="confirm()" class="btn btn-danger" href="#" role="button">DELETE</a>
         </div>
     </form>
 <% include ../partials/footer %>
