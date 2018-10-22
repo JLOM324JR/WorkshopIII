@@ -1,44 +1,37 @@
 <% include ../partials/header %>
-<script language="JavaScript">
-  function chkConfirm(){
-    if(confirm('Do you want to delete product')==true){
-      window.location = "/user_delete/<%= user.user_id %>";
-      
-   }else{
-    return(null);
-  }
-}
-</script>
-<form action = "/user/update" method = "POST">
-
-<div class="form-group">
-  <label for="">ID</label>
-  <input type="number"
-    class="form-control" value = "<%= user.user_id %>" name="id" id="" aria-describedby="helpId" placeholder="">
-  <small id="helpId" class="form-text text-muted">User ID</small>
-</div>
-<div class="form-group">
-  <label for="">Email</label>
-  <input type="text"
-    class="form-control" value = "<%= user.email %>" name="email" id="" aria-describedby="helpId" placeholder="">
-  <small id="helpId" class="form-text text-muted">User Email</small>
-</div>
-<div class="form-group">
-  <label for="">Password</label>
-  <input type="text"
-    class="form-control" value = "<%= user.password %>" name="password" id="" aria-describedby="helpId" placeholder="">
-  <small id="helpId" class="form-text text-muted">User Password</small>
-</div>
-<div class="form-group">
-        <label for="">Time</label>
-        <input type="text"
-          class="form-control" value="<%= time %>"name="time" id="" aria-describedby="helpId" placeholder="" >
-</div>
-<div class="text-center">
-        <button type = "submit" class="btn btn-success">Save</button>
-        <a name="" id="" class="btn btn-warning" href="/users" role="button">Cancel</a>
-        <a name="btnConfirm" value="Confirm" OnClick="chkConfirm()" class="btn btn-danger" href="#" role="button">DELETE</a>
-    </div>
-</form>
-
+  <script language="JavaScript">
+      function confirm(){
+          if(confirm('Do you want to delete product')==true){
+              window.location = "/user_delete/<%= user.user_id %>";
+          }else{
+              return(null);
+          }
+        }
+    </script>
+    <form action = "/user/update" method = "POST">
+        <div class="form-group">
+            <label for="">ID</label>
+            <input type="number" class="form-control" value = "<%= user.user_id %>" name="id" id="" aria-describedby="helpId" placeholder="">
+            <small id="helpId" class="form-text text-muted">User ID</small>
+        </div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" class="form-control" value = "<%= user.email %>" name="email" id="" aria-describedby="helpId" placeholder="">
+            <small id="helpId" class="form-text text-muted">User Email</small>
+        </div>
+        <div class="form-group">
+            <label for="">Password</label>
+            <input type="text" class="form-control" value = "<%= user.password %>" name="password" id="" aria-describedby="helpId" placeholder="">
+            <small id="helpId" class="form-text text-muted">User Password</small>
+        </div>
+        <div class="form-group">
+            <label for="">Time</label>
+            <input type="text" class="form-control" value="<%= time %>"name="time" id="" aria-describedby="helpId" placeholder="" >
+        </div>
+        <div class="text-center">
+            <button type = "submit" class="btn btn-success">Save</button>
+            <a name="" id="" class="btn btn-warning" href="/users" role="button">Cancel</a>
+            <a name="btnConfirm" value="Confirm" OnClick="confirm()" class="btn btn-danger" href="#" role="button">DELETE</a>
+        </div>
+    </form>
 <% include ../partials/footer %>
