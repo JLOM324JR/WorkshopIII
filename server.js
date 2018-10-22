@@ -16,10 +16,11 @@ app.get('/index', function (req, res) {
     res.render('pages/index');
 });
 app.get('/about', function (req, res) {
-    var name = 'JLOM A.';
-    var hobbies = ['Football', 'Movie', 'Programming']
-    var bdate = '14/07/1997'
-    res.render('pages/about', { nickname: name, hobbies: hobbies, bdate: bdate });
+    var name = 'RADTANAPORN  CHOEIKAN';
+    var id = 'ID : 5930213024';
+    var major = 'Major : Software Engineering';
+    var bdate = 'Birthdate 14/07/1997'
+    res.render('pages/about', { name: name,id: id, major: major, bdate: bdate });
 });
 
 //Display All Products
