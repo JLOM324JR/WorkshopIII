@@ -73,7 +73,7 @@ app.get('/add_product', function (req, res) {
     var sql = 'select* from products order by product_id ASC';
     db.any(sql)
         .then(function (data) {
-            res.render('pages/add_user',{time:time, newid: data.length+1});
+            res.render('pages/add_product',{time:time, proid: data.length+1});
         })
         .catch(function (error) {
             console.log('ERROR:' + error);
